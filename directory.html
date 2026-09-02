@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directory — Agent Stack MCP</title>
+<meta name="description" content="Every AI agent tool we've inspected, with a safety score, publisher, and whether it can only read your data or also change it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="index.html"><span class="stamp"></span>Agent Stack MCP</a>
+    <nav class="primary-nav">
+      <a href="directory.html" class="active">Directory</a>
+      <a href="stacks/solo-shopify-seller.html">Stacks</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="article-header">
+  <div class="container">
+    <h1>The directory</h1>
+    <p class="lede">Every tool here has been checked for who publishes it, how it logs you in, whether it can only view or also change your data, and whether it's actively maintained. Nothing here is paid placement.</p>
+  </div>
+</section>
+
+<section class="manifest">
+  <div class="container">
+    <div class="filter-bar" id="filter-bar">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="pass">Passed</button>
+      <button data-filter="risk">Flagged</button>
+      <button data-filter="readonly">Read-only</button>
+      <button data-filter="write">Can write</button>
+    </div>
+    <div id="all-entries"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Agent Stack MCP — independent inspections, no vendor pays for placement.</span>
+    <span><a href="about.html">How we inspect</a></span>
+  </div>
+</footer>
+
+<script src="assets/listings.js"></script>
+<script>
+  const container = document.getElementById('all-entries');
+
+  function render(filter) {
+    let items = LISTINGS;
+    if (filter === 'pass' || filter === 'risk') {
+      items = LISTINGS.filter(i => i.verdict === filter);
+    } else if (filter === 'readonly' || filter === 'write') {
+      items = LISTINGS.filter(i => i.access === filter);
+    }
+    container.innerHTML = items.map(item => `
+      <div class="entry">
+        <div class="score-badge ${item.verdict}">${item.score}</div>
+        <div class="entry-body">
+          <div class="entry-title">
+            <h3>${item.name}</h3>
+            <span class="tag ${item.access === 'write' ? 'write' : 'readonly'}">${item.access === 'write' ? 'can write' : 'read-only'}</span>
+          </div>
+          <p class="entry-desc">${item.summary}</p>
+          <p class="entry-meta"><strong>Publisher:</strong> ${item.publisher} &nbsp;·&nbsp; <strong>Category:</strong> ${item.category}</p>
+          <p class="entry-meta"><strong>Login method:</strong> ${item.auth}</p>
+          ${item.verdict === 'risk'
+            ? `<div class="callout"><p>${item.caution}</p></div>`
+            : `<div class="callout safe"><p>${item.caution}</p></div>`}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  render('all');
+
+  document.getElementById('filter-bar').addEventListener('click', (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
+    document.querySelectorAll('#filter-bar button').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    render(e.target.dataset.filter);
+  });
+</script>
+
+</body>
+</html>

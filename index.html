@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Stack MCP — Inspected AI tools for Shopify sellers</title>
+<meta name="description" content="A safety-checked directory of MCP (AI agent) tools for ecommerce sellers who aren't developers. Know what you're really connecting to your store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="index.html"><span class="stamp"></span>Agent Stack MCP</a>
+    <nav class="primary-nav">
+      <a href="directory.html" class="active">Directory</a>
+      <a href="stacks/solo-shopify-seller.html">Stacks</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow-line">A safety-checked directory of AI agent tools for store owners who aren't developers.</p>
+    <h1>Know what you're really connecting to your store.</h1>
+    <p class="lede">Thousands of new AI tools (MCP servers) can now plug straight into your Shopify store, payments, and customer data. Most have never been checked by anyone. We check them first, so you don't have to guess.</p>
+    <div class="cta-row">
+      <a class="btn" href="directory.html">Browse the directory</a>
+      <a class="btn-ghost" href="stacks/solo-shopify-seller.html">See the starter stack</a>
+    </div>
+    <p class="stat-line" style="margin-top:22px;">7 tools inspected so far · 2 flagged as risky · 0 sponsored listings today</p>
+  </div>
+</section>
+
+<section class="featured">
+  <div class="container">
+    <h2>This week's stack</h2>
+    <div class="featured-row">
+      <div>
+        <h3 style="margin-bottom:4px;">The Solo Shopify Seller Stack</h3>
+        <p class="meta">4 tools, all inspected, that work together to handle store updates, payments questions, and email campaigns — set up in under an hour.</p>
+      </div>
+      <a class="btn-ghost" href="stacks/solo-shopify-seller.html">Read the guide</a>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <h2>How an inspection works</h2>
+    <ol class="how-list">
+      <li>
+        <div class="num">01</div>
+        <h3>Confirm the publisher</h3>
+        <p>Is it the actual platform (Shopify, Stripe) or an anonymous account? We check who's really behind it.</p>
+      </li>
+      <li>
+        <div class="num">02</div>
+        <h3>Check the login method</h3>
+        <p>Proper sign-in (OAuth) beats pasting in a raw key — and anything asking for your password outright is rejected.</p>
+      </li>
+      <li>
+        <div class="num">03</div>
+        <h3>Read vs. write</h3>
+        <p>Can it only look at your data, or can it actually change things — refund, edit, send? We label this clearly.</p>
+      </li>
+      <li>
+        <div class="num">04</div>
+        <h3>Check it's maintained</h3>
+        <p>Abandoned tools accumulate unpatched holes. We check for recent, active upkeep.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="manifest">
+  <div class="container">
+    <div class="manifest-header">
+      <h2>Recently inspected</h2>
+      <a href="directory.html" style="font-size:0.92rem;">View all →</a>
+    </div>
+    <div id="recent-entries"></div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="newsletter-box">
+    <h3>Get notified when a new stack is inspected</h3>
+    <p>One email when we publish a new stack guide or flag a tool sellers should know about. No spam, unsubscribe any time.</p>
+    <form class="newsletter-form" action="#" method="post">
+      <input type="email" placeholder="you@yourstore.com" required aria-label="Email address">
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Agent Stack MCP — independent inspections, no vendor pays for placement.</span>
+    <span><a href="about.html">How we inspect</a></span>
+  </div>
+</footer>
+
+<script src="assets/listings.js"></script>
+<script>
+  const top3 = LISTINGS.slice(0, 3);
+  document.getElementById('recent-entries').innerHTML = top3.map(item => `
+    <div class="entry">
+      <div class="score-badge ${item.verdict}">${item.score}</div>
+      <div class="entry-body">
+        <div class="entry-title">
+          <h3>${item.name}</h3>
+          <span class="tag ${item.access === 'write' ? 'write' : 'readonly'}">${item.access === 'write' ? 'can write' : 'read-only'}</span>
+        </div>
+        <p class="entry-desc">${item.summary}</p>
+        <p class="entry-meta">${item.publisher} · ${item.category}</p>
+      </div>
+    </div>
+  `).join('');
+</script>
+
+</body>
+</html>

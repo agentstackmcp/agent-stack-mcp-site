@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Solo Shopify Seller Stack — Agent Stack MCP</title>
+<meta name="description" content="A tested, step-by-step stack of 4 inspected AI agent tools for solo Shopify sellers: store management, payments, analytics, and email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="wordmark" href="../index.html"><span class="stamp"></span>Agent Stack MCP</a>
+    <nav class="primary-nav">
+      <a href="../directory.html">Directory</a>
+      <a href="solo-shopify-seller.html" class="active">Stacks</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="article-header">
+  <div class="container">
+    <h1>The Solo Shopify Seller Stack</h1>
+    <p class="lede">Four inspected tools that cover store updates, payment questions, traffic numbers, and email campaigns — set up in under an hour, no coding required.</p>
+  </div>
+</section>
+
+<div class="container">
+<article class="article-body">
+
+  <h2>What's in this stack</h2>
+  <ol>
+    <li><strong>Shopify Admin MCP</strong> — official, lets your assistant check and update products/inventory/orders</li>
+    <li><strong>Stripe MCP</strong> — official, answers payment and payout questions (read-only)</li>
+    <li><strong>Google Analytics 4 MCP</strong> — official, plain-English traffic and conversion answers (read-only)</li>
+    <li><strong>Klaviyo MCP</strong> — official beta, drafts and sends email campaigns</li>
+  </ol>
+
+  <div class="callout">
+    <p><strong>Before you connect anything:</strong> two of these four tools (Shopify Admin and Klaviyo) can make real changes to your store or send real emails, not just look at data. Follow the confirmation-step instructions below for both — don't skip that part.</p>
+  </div>
+
+  <h2>Step 1 — Set up your AI assistant</h2>
+  <p>You'll need an MCP-compatible AI assistant already installed (this guide assumes you're using Claude — the desktop or web app). If you haven't set that up yet, do that first before continuing.</p>
+
+  <h2>Step 2 — Connect Shopify Admin MCP</h2>
+  <ol>
+    <li>In your assistant's settings, find "Connectors" or "MCP servers."</li>
+    <li>Search for "Shopify" and select the official Shopify Admin connector.</li>
+    <li>You'll be redirected to a Shopify login screen — sign in with your normal store admin account. This is the safe OAuth method; you are never asked to paste in a password directly into the assistant.</li>
+    <li>On the permissions screen, review exactly what's being requested (products, inventory, orders) before approving.</li>
+    <li><strong>Turn on "confirm before changes"</strong> if the connector offers it — this makes the assistant ask you before it edits anything.</li>
+  </ol>
+
+  <h2>Step 3 — Connect Stripe MCP</h2>
+  <ol>
+    <li>Same process: search "Stripe" in Connectors, select the official one.</li>
+    <li>Sign in through Stripe's OAuth screen.</li>
+    <li>Confirm the permission screen shows reporting/read access — not payout or refund control, which you don't need for this stack.</li>
+  </ol>
+
+  <h2>Step 4 — Connect Google Analytics 4 MCP</h2>
+  <ol>
+    <li>Search "Google Analytics" in Connectors.</li>
+    <li>Sign in with the Google account tied to your store's GA4 property.</li>
+    <li>No further settings needed — this one is read-only by design.</li>
+  </ol>
+
+  <h2>Step 5 — Connect Klaviyo MCP</h2>
+  <ol>
+    <li>Search "Klaviyo" in Connectors, select the official (beta) connector.</li>
+    <li>Sign in through Klaviyo's OAuth screen.</li>
+    <li><strong>Turn on "confirm before send"</strong> in the connector's settings — this is the single most important toggle in this whole stack, since it stops the assistant from emailing your customer list without your review.</li>
+  </ol>
+
+  <h2>Step 6 — Test it safely</h2>
+  <p>Before relying on the stack for real work, try low-stakes questions first:</p>
+  <ul>
+    <li>"What were my top 3 products by revenue last week?" (tests GA4 + Shopify, read-only)</li>
+    <li>"Do I have any failed payments in the last 7 days?" (tests Stripe, read-only)</li>
+    <li>"Draft — don't send — an email about our new arrivals." (tests Klaviyo without risk)</li>
+  </ul>
+  <p>Only once you're comfortable with how it responds should you approve a real write action (updating a product, sending a campaign).</p>
+
+  <div class="callout safe">
+    <p>This stack was tested end-to-end before publishing. If any of these tools change their setup flow, tell us and we'll update this guide.</p>
+  </div>
+
+</article>
+</div>
+
+<div class="container">
+  <div class="newsletter-box">
+    <h3>Get notified when a new stack is inspected</h3>
+    <p>One email when we publish a new stack guide or flag a tool sellers should know about.</p>
+    <form class="newsletter-form" action="#" method="post">
+      <input type="email" placeholder="you@yourstore.com" required aria-label="Email address">
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Agent Stack MCP — independent inspections, no vendor pays for placement.</span>
+    <span><a href="../about.html">How we inspect</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
