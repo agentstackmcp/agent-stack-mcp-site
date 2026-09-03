@@ -80,5 +80,49 @@ const LISTINGS = [
     summary: "Summarizes cash flow, invoices, and expenses in conversation instead of digging through reports.",
     auth: "OAuth sign-in.",
     caution: "Read-only by default — safe starting point for a first accounting connection."
+  },
+  {
+    name: "PayPal MCP",
+    category: "Payments",
+    publisher: "PayPal (official, Agent Toolkit)",
+    score: 8,
+    verdict: "pass",
+    access: "write",
+    summary: "Handles disputes, invoicing, and shipping admin tasks for PayPal-first stores directly from an AI assistant.",
+    auth: "OAuth sign-in through PayPal's official Agent Toolkit.",
+    caution: "Can take real write actions (disputes, invoices) — review its first few actions closely, same as any official write-enabled connector."
+  },
+  {
+    name: "WooCommerce MCP (official beta)",
+    category: "Store management",
+    publisher: "WooCommerce (official, public beta)",
+    score: 7,
+    verdict: "pass",
+    access: "write",
+    summary: "First-party WooCommerce connector, still in public beta. Because it's self-hosted inside WordPress, it can see and edit far more than just your storefront — themes, plugins, checkout code included.",
+    auth: "OAuth sign-in tied to your WordPress admin.",
+    caution: "Broader access than a typical storefront tool by design — it sees your whole site, not just products. Prefer this over community WooCommerce connectors now that an official option exists; performance also depends on your own hosting speed."
+  },
+  {
+    name: "Zendesk MCP (official)",
+    category: "Customer support",
+    publisher: "Zendesk (official, first-party)",
+    score: 8,
+    verdict: "pass",
+    access: "write",
+    summary: "Lets an assistant read and act on support tickets, users, and help center articles for your store's support inbox.",
+    auth: "OAuth with dynamic client registration, run per-account rather than a shared vendor server.",
+    caution: "Can write to tickets, not just read them — turn on any available confirm-before-action setting. Note this only responds inside a conversation you start; it can't watch your queue or alert you to anything on its own."
+  },
+  {
+    name: "Mailchimp Ecommerce MCP (via Appy Pie Automate)",
+    category: "Marketing",
+    publisher: "Third-party automation platform, not Mailchimp itself",
+    score: 3,
+    verdict: "risk",
+    access: "write",
+    summary: "Connects Mailchimp to AI assistants by routing through a third-party no-code automation platform rather than a direct, official Mailchimp integration.",
+    auth: "Routed through the third-party platform's own account system, not a direct OAuth link to Mailchimp.",
+    caution: "No official Mailchimp-built MCP server exists yet as of this writing. Adding an extra third-party platform in between means another company has access to your email data. Wait for an official server, or use Klaviyo (already listed, official) if email is a priority today."
   }
 ];
