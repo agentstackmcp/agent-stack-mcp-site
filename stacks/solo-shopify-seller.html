@@ -94,16 +94,31 @@
 </div>
 
 <div class="container">
-  <div class="newsletter-box">
-    <h3>Get notified when a new stack is inspected</h3>
-    <p>One email when we publish a new stack guide or flag a tool sellers should know about.</p>
-    <form class="newsletter-form" action="https://assets.mailerlite.com/jsonp/2612388/forms/197544393839740852/subscribe" method="post" target="_blank">
-  <input type="email" name="fields[email]" placeholder="you@yourstore.com" required aria-label="Email address" autocomplete="email">
-  <input type="hidden" name="ml-submit" value="1">
-  <input type="hidden" name="anticsrf" value="true">
-  <button class="btn" type="submit">Subscribe</button>
-    </form>
+  <div class="newsletter-box" id="newsletter-box">
+    <div id="newsletter-form-state">
+      <h3>Get notified when a new stack is inspected</h3>
+      <p>One email when we publish a new stack guide or flag a tool sellers should know about.</p>
+      <form class="newsletter-form" id="newsletter-form" action="https://assets.mailerlite.com/jsonp/2612388/forms/197544393839740852/subscribe" method="post" target="ml-hidden-frame">
+        <input type="email" name="fields[email]" placeholder="you@yourstore.com" required aria-label="Email address" autocomplete="email">
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div id="newsletter-thanks" style="display:none;">
+      <h3>You're on the list</h3>
+      <p>We'll email you when the next stack or safety flag goes live.</p>
+    </div>
   </div>
+  <iframe name="ml-hidden-frame" style="display:none;" title="newsletter submission"></iframe>
+  <script>
+    document.getElementById('newsletter-form').addEventListener('submit', function () {
+      setTimeout(function () {
+        document.getElementById('newsletter-form-state').style.display = 'none';
+        document.getElementById('newsletter-thanks').style.display = 'block';
+      }, 600);
+    });
+  </script>
 </div>
 
 <footer class="site-footer">
