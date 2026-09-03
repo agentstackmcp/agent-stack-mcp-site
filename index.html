@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agent Stack MCP — Inspected AI tools for Shopify sellers</title>
-<meta name="description" content="A safety-checked directory of MCP (AI agent) tools for ecommerce sellers who aren't developers. Know what you're really connecting
-  <meta name="google-site-verification" content="IbVhFtbNGUsEESRRMEmEl2QQsbBVO0OaXBMC23wTiZY" />to your store.">
+<meta name="description" content="A safety-checked directory of MCP (AI agent) tools for ecommerce sellers who aren't developers. Know what you're really connecting to your store.">
+<meta name="google-site-verification" content="IbVhFtbNGUsEESRRMEmEl2QQsbBVO0OaXBMC23wTiZY" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
@@ -79,66 +79,3 @@
 
 <section class="manifest">
   <div class="container">
-    <div class="manifest-header">
-      <h2>Recently inspected</h2>
-      <a href="directory.html" style="font-size:0.92rem;">View all →</a>
-    </div>
-    <div id="recent-entries"></div>
-  </div>
-</section>
-
-<div class="container">
-  <div class="newsletter-box" id="newsletter-box">
-    <div id="newsletter-form-state">
-      <h3>Get notified when a new stack is inspected</h3>
-      <p>One email when we publish a new stack guide or flag a tool sellers should know about. No spam, unsubscribe any time.</p>
-      <form class="newsletter-form" id="newsletter-form" action="https://assets.mailerlite.com/jsonp/2612388/forms/197544393839740852/subscribe" method="post" target="ml-hidden-frame">
-        <input type="email" name="fields[email]" placeholder="you@yourstore.com" required aria-label="Email address" autocomplete="email">
-        <input type="hidden" name="ml-submit" value="1">
-        <input type="hidden" name="anticsrf" value="true">
-        <button class="btn" type="submit">Subscribe</button>
-      </form>
-    </div>
-    <div id="newsletter-thanks" style="display:none;">
-      <h3>You're on the list</h3>
-      <p>We'll email you when the next stack or safety flag goes live.</p>
-    </div>
-  </div>
-  <iframe name="ml-hidden-frame" style="display:none;" title="newsletter submission"></iframe>
-  <script>
-    document.getElementById('newsletter-form').addEventListener('submit', function () {
-      setTimeout(function () {
-        document.getElementById('newsletter-form-state').style.display = 'none';
-        document.getElementById('newsletter-thanks').style.display = 'block';
-      }, 600);
-    });
-  </script>
-</div>
-
-<footer class="site-footer">
-  <div class="container">
-    <span>Agent Stack MCP — independent inspections, no vendor pays for placement.</span>
-    <span><a href="about.html">How we inspect</a></span>
-  </div>
-</footer>
-
-<script src="assets/listings.js"></script>
-<script>
-  const top3 = LISTINGS.slice(0, 3);
-  document.getElementById('recent-entries').innerHTML = top3.map(item => `
-    <div class="entry">
-      <div class="score-badge ${item.verdict}">${item.score}</div>
-      <div class="entry-body">
-        <div class="entry-title">
-          <h3>${item.name}</h3>
-          <span class="tag ${item.access === 'write' ? 'write' : 'readonly'}">${item.access === 'write' ? 'can write' : 'read-only'}</span>
-        </div>
-        <p class="entry-desc">${item.summary}</p>
-        <p class="entry-meta">${item.publisher} · ${item.category}</p>
-      </div>
-    </div>
-  `).join('');
-</script>
-
-</body>
-</html>
